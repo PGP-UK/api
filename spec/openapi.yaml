@@ -9,8 +9,8 @@ info:
     email: pgp-uk@ucl.ac.uk
     # url: 'http://example.com/contact'
   license:
-    name: Apache 2.0
-    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+    name: Creative Commons 0 (CC0)
+    url: 'https://creativecommons.org/share-your-work/public-domain/cc0/'
   x-logo:
     url: 'https://apis.guru/openapi-template/logo.png'
   
