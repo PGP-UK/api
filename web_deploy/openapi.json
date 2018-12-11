@@ -1,0 +1,1318 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Personal Genome Project UK",
+    "termsOfService": "https://www.personalgenomes.org.uk/tos",
+    "contact": {
+      "email": "pgp-uk@ucl.ac.uk"
+    },
+    "license": {
+      "name": "Creative Commons 0 (CC0)",
+      "url": "https://creativecommons.org/share-your-work/public-domain/cc0/"
+    },
+    "x-logo": {
+      "url": "https://apis.guru/openapi-template/logo.png"
+    },
+    "description": "# Introduction\n\nPGP-UK data (viewable at [here](https://www.personalgenomes.org.uk/data)) can also be accessed using an API, which has been documented below.\n"
+  },
+  "tags": [
+    {
+      "name": "Participants",
+      "description": "Operations about PGP-UK participants"
+    },
+    {
+      "name": "Whole Genome Sequencing",
+      "description": "Operations about Whole Genome Sequencing Data"
+    },
+    {
+      "name": "Variant Data",
+      "description": "Operations about Whole Genome/Exome Sequencing Variant Data"
+    },
+    {
+      "name": "Genotype Data",
+      "description": "Operations about Genotype Data"
+    },
+    {
+      "name": "Whole Genome Bisulfite Data",
+      "description": "Operations about Whole Genome Bisulfite Data"
+    },
+    {
+      "name": "Methylation Array Data",
+      "description": "Operations about Methylation Array Data"
+    },
+    {
+      "name": "RNA-Seq",
+      "description": "Operations about RNA seq data"
+    },
+    {
+      "name": "Amplicon RNA-Seq",
+      "description": "Operations about RNA seq data (Amplicon RNA-seq)"
+    },
+    {
+      "name": "Proton RNA-Seq",
+      "description": "Operations about RNA seq data (Proton RNA-seq)"
+    },
+    {
+      "name": "Data Direct Urls",
+      "description": "Direct links to all data"
+    },
+    {
+      "name": "PGP-UK profile",
+      "description": "Operations about Whole Genome Bisulfite Data"
+    },
+    {
+      "name": "Genome Reports",
+      "description": "Operations about the participant's Genome Reports"
+    },
+    {
+      "name": "Methylome Reports",
+      "description": "Operations about the participant's Methylation Reports"
+    },
+    {
+      "name": "Phenotype Data",
+      "description": "Operations about the participant's phenotype data"
+    }
+  ],
+  "servers": [
+    {
+      "url": "https://www.personalgenomes.org.uk/api/v1"
+    }
+  ],
+  "paths": {
+    "/all_participants": {
+      "get": {
+        "tags": [
+          "Participants"
+        ],
+        "summary": "Get all data",
+        "description": "This will return an object containing all the data for all PGP-UK participants.\n",
+        "operationId": "getAllParicipants",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "ALL DATA TODO",
+                  "type": "object",
+                  "properties": {
+                    "hex_id": {
+                      "$ref": "#/components/schemas/HexId"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/Participant"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Data not found"
+          }
+        }
+      }
+    },
+    "/participant/{pgp_hex_id}": {
+      "get": {
+        "tags": [
+          "Participants"
+        ],
+        "summary": "Get all data by PGP-UK hex id",
+        "description": "This will return an object containing all the data associated with this PGP-UK participant\n",
+        "operationId": "getParicipantByHexId",
+        "parameters": [
+          {
+            "name": "pgp_hex_id",
+            "in": "path",
+            "description": "The hex id for the PGP-UK participant for whom the data needs to be fetched",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/HexId"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Participant"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Participant not found"
+          }
+        }
+      }
+    },
+    "/all_wgs": {
+      "get": {
+        "tags": [
+          "Whole Genome Sequencing"
+        ],
+        "summary": "Get all whole genome sequencing data",
+        "description": "This will return an object containing all the data for all PGP-UK participants.\n",
+        "operationId": "getAllWgs",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "ALL DATA TODO",
+                  "type": "object",
+                  "properties": {
+                    "hex_id": {
+                      "$ref": "#/components/schemas/HexId"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/WGS"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Data not found"
+          }
+        }
+      }
+    },
+    "/wgs/{pgp_hex_id}": {
+      "get": {
+        "tags": [
+          "Whole Genome Sequencing"
+        ],
+        "summary": "Get all whole genome sequencing data by PGP-UK hex id",
+        "description": "This will return an object containing all the data associated with this PGP-UK participant\n",
+        "operationId": "getWgsByHexId",
+        "parameters": [
+          {
+            "name": "pgp_hex_id",
+            "in": "path",
+            "description": "The hex id for the PGP-UK participant for whom the data needs to be fetched",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/HexId"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WGS"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Participant not found"
+          }
+        }
+      }
+    },
+    "/all_variant": {
+      "get": {
+        "tags": [
+          "Variant Data"
+        ],
+        "summary": "Get all variant data",
+        "description": "This will return an object containing all the data for all PGP-UK participants.\n",
+        "operationId": "getAllVariant",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "ALL DATA TODO",
+                  "type": "object",
+                  "properties": {
+                    "hex_id": {
+                      "$ref": "#/components/schemas/HexId"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/Variant"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Data not found"
+          }
+        }
+      }
+    },
+    "/variant/{pgp_hex_id}": {
+      "get": {
+        "tags": [
+          "Variant Data"
+        ],
+        "summary": "Get all variant data by PGP-UK hex id",
+        "description": "This will return an object containing all the data associated with this PGP-UK participant\n",
+        "operationId": "getVariantByHexId",
+        "parameters": [
+          {
+            "name": "pgp_hex_id",
+            "in": "path",
+            "description": "The hex id for the PGP-UK participant for whom the data needs to be fetched",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/HexId"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Variant"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Participant not found"
+          }
+        }
+      }
+    },
+    "/all_genotype": {
+      "get": {
+        "tags": [
+          "Genotype Data"
+        ],
+        "summary": "Get all genotype data",
+        "description": "This will return an object containing all the data for all PGP-UK participants.\n",
+        "operationId": "getAllGenotype",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "ALL DATA TODO",
+                  "type": "object",
+                  "properties": {
+                    "hex_id": {
+                      "$ref": "#/components/schemas/HexId"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/Genotype"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Data not found"
+          }
+        }
+      }
+    },
+    "/genotype/{pgp_hex_id}": {
+      "get": {
+        "tags": [
+          "Genotype Data"
+        ],
+        "summary": "Get all genotype data by PGP-UK hex id",
+        "description": "This will return an object containing all the data associated with this PGP-UK participant\n",
+        "operationId": "getGenotypeByHexId",
+        "parameters": [
+          {
+            "name": "pgp_hex_id",
+            "in": "path",
+            "description": "The hex id for the PGP-UK participant for whom the data needs to be fetched",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/HexId"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Genotype"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Participant not found"
+          }
+        }
+      }
+    },
+    "/all_wgbs": {
+      "get": {
+        "tags": [
+          "Whole Genome Bisulfite Data"
+        ],
+        "summary": "Get all whole genome bisulfite data",
+        "description": "This will return an object containing all the data for all PGP-UK participants.\n",
+        "operationId": "getAllWbgs",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "ALL DATA TODO",
+                  "type": "object",
+                  "properties": {
+                    "hex_id": {
+                      "$ref": "#/components/schemas/HexId"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/WGBS"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Data not found"
+          }
+        }
+      }
+    },
+    "/wgbs/{pgp_hex_id}": {
+      "get": {
+        "tags": [
+          "Whole Genome Bisulfite Data"
+        ],
+        "summary": "Get all whole genome bisulfite data by PGP-UK hex id",
+        "description": "This will return an object containing all the data associated with this PGP-UK participant\n",
+        "operationId": "getWgbsByHexId",
+        "parameters": [
+          {
+            "name": "pgp_hex_id",
+            "in": "path",
+            "description": "The hex id for the PGP-UK participant for whom the data needs to be fetched",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/HexId"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WGBS"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Participant not found"
+          }
+        }
+      }
+    },
+    "/all_meth_array": {
+      "get": {
+        "tags": [
+          "Methylation Array Data"
+        ],
+        "summary": "Get all methylation array data",
+        "description": "This will return an object containing all the data for all PGP-UK participants.\n",
+        "operationId": "getAllMethArray",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "ALL DATA TODO",
+                  "type": "object",
+                  "properties": {
+                    "hex_id": {
+                      "$ref": "#/components/schemas/HexId"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/MethylationArrayData"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Data not found"
+          }
+        }
+      }
+    },
+    "/meth_array/{pgp_hex_id}": {
+      "get": {
+        "tags": [
+          "Methylation Array Data"
+        ],
+        "summary": "Get all methylation array data by PGP-UK hex id",
+        "description": "This will return an object containing all the data associated with this PGP-UK participant\n",
+        "operationId": "getMethArrayByHexId",
+        "parameters": [
+          {
+            "name": "pgp_hex_id",
+            "in": "path",
+            "description": "The hex id for the PGP-UK participant for whom the data needs to be fetched",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/HexId"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MethylationArrayData"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Participant not found"
+          }
+        }
+      }
+    },
+    "/all_rna_seq": {
+      "get": {
+        "tags": [
+          "RNA-Seq"
+        ],
+        "summary": "Get all RNA-seq data",
+        "description": "This will return an object containing all the data for all PGP-UK participants.\n",
+        "operationId": "getAllRnaSeq",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "ALL DATA TODO",
+                  "type": "object",
+                  "properties": {
+                    "hex_id": {
+                      "$ref": "#/components/schemas/HexId"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/RnaSeq"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Data not found"
+          }
+        }
+      }
+    },
+    "/rna_seq/{pgp_hex_id}": {
+      "get": {
+        "tags": [
+          "RNA-Seq"
+        ],
+        "summary": "Get all RNA-seq data by PGP-UK hex id",
+        "description": "This will return an object containing all the data associated with this PGP-UK participant\n",
+        "operationId": "getRnaSeqByHexId",
+        "parameters": [
+          {
+            "name": "pgp_hex_id",
+            "in": "path",
+            "description": "The hex id for the PGP-UK participant for whom the data needs to be fetched",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/HexId"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RnaSeq"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Participant not found"
+          }
+        }
+      }
+    },
+    "/all_amplicon_rna_seq": {
+      "get": {
+        "tags": [
+          "Amplicon RNA-Seq"
+        ],
+        "summary": "Get all amplicon RNA-seq data",
+        "description": "This will return an object containing all the data for all PGP-UK participants.\n",
+        "operationId": "getAllAmpliconRnaSeq",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "ALL DATA TODO",
+                  "type": "object",
+                  "properties": {
+                    "hex_id": {
+                      "$ref": "#/components/schemas/HexId"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/AmpliconRNAseq"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Data not found"
+          }
+        }
+      }
+    },
+    "/amplicon_rna_seq/{pgp_hex_id}": {
+      "get": {
+        "tags": [
+          "Amplicon RNA-Seq"
+        ],
+        "summary": "Get all amplicon RNA-seq data by PGP-UK hex id",
+        "description": "This will return an object containing all the data associated with this PGP-UK participant\n",
+        "operationId": "getAmpliconRnaSeqByHexId",
+        "parameters": [
+          {
+            "name": "pgp_hex_id",
+            "in": "path",
+            "description": "The hex id for the PGP-UK participant for whom the data needs to be fetched",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/HexId"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AmpliconRNAseq"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Participant not found"
+          }
+        }
+      }
+    },
+    "/all_proton_rna_seq": {
+      "get": {
+        "tags": [
+          "Proton RNA-Seq"
+        ],
+        "summary": "Get all proton RNA-seq data",
+        "description": "This will return an object containing all the data for all PGP-UK participants.\n",
+        "operationId": "getAllProtonRnaSeq",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "ALL DATA TODO",
+                  "type": "object",
+                  "properties": {
+                    "hex_id": {
+                      "$ref": "#/components/schemas/HexId"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/ProtonRnaSeq"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Data not found"
+          }
+        }
+      }
+    },
+    "/proton_rna_seq/{pgp_hex_id}": {
+      "get": {
+        "tags": [
+          "Proton RNA-Seq"
+        ],
+        "summary": "Get all proton RNA-seq data by PGP-UK hex id",
+        "description": "This will return an object containing all the data associated with this PGP-UK participant\n",
+        "operationId": "getProtonRnaSeqByHexId",
+        "parameters": [
+          {
+            "name": "pgp_hex_id",
+            "in": "path",
+            "description": "The hex id for the PGP-UK participant for whom the data needs to be fetched",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/HexId"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProtonRnaSeq"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Participant not found"
+          }
+        }
+      }
+    },
+    "/all_download_url": {
+      "get": {
+        "tags": [
+          "Data Direct Urls"
+        ],
+        "summary": "Get all file download URL",
+        "description": "This will return an object containing all the data for all PGP-UK participants.\n",
+        "operationId": "getDownloadUrl",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "ALL DATA TODO",
+                  "type": "object",
+                  "properties": {
+                    "hex_id": {
+                      "$ref": "#/components/schemas/HexId"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/DataURLs"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Data not found"
+          }
+        }
+      }
+    },
+    "/download_url/{pgp_hex_id}": {
+      "get": {
+        "tags": [
+          "Data Direct Urls"
+        ],
+        "summary": "Get all file download URL by PGP-UK hex id",
+        "description": "This will return an object containing all the data associated with this PGP-UK participant\n",
+        "operationId": "getDownloadUrlByHexId",
+        "parameters": [
+          {
+            "name": "pgp_hex_id",
+            "in": "path",
+            "description": "The hex id for the PGP-UK participant for whom the data needs to be fetched",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/HexId"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataURLs"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Participant not found"
+          }
+        }
+      }
+    },
+    "/all_pgp_profile": {
+      "get": {
+        "tags": [
+          "PGP-UK profile"
+        ],
+        "summary": "Get all PGP-UK profile meta data",
+        "description": "This will return an object containing all the data for all PGP-UK participants.\n",
+        "operationId": "getPgpProfile",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "ALL DATA TODO",
+                  "type": "object",
+                  "properties": {
+                    "hex_id": {
+                      "$ref": "#/components/schemas/HexId"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/PGPUKProfile"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Data not found"
+          }
+        }
+      }
+    },
+    "/pgp_profile/{pgp_hex_id}": {
+      "get": {
+        "tags": [
+          "PGP-UK profile"
+        ],
+        "summary": "Get all PGP-UK profile meta data by PGP-UK hex id",
+        "description": "This will return an object containing all the data associated with this PGP-UK participant\n",
+        "operationId": "getPgpProfileByHexId",
+        "parameters": [
+          {
+            "name": "pgp_hex_id",
+            "in": "path",
+            "description": "The hex id for the PGP-UK participant for whom the data needs to be fetched",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/HexId"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PGPUKProfile"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Participant not found"
+          }
+        }
+      }
+    },
+    "/all_genome_report": {
+      "get": {
+        "tags": [
+          "Genome Reports"
+        ],
+        "summary": "Get all genome reports",
+        "description": "This will return an object containing all the data for all PGP-UK participants.\n",
+        "operationId": "getGenomeReport",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "ALL DATA TODO",
+                  "type": "object",
+                  "properties": {
+                    "hex_id": {
+                      "$ref": "#/components/schemas/HexId"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/GenomeReport"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Data not found"
+          }
+        }
+      }
+    },
+    "/genome_report/{pgp_hex_id}": {
+      "get": {
+        "tags": [
+          "Genome Reports"
+        ],
+        "summary": "Get all genome reports by PGP-UK hex id",
+        "description": "This will return an object containing all the data associated with this PGP-UK participant\n",
+        "operationId": "getGenomeReportByHexId",
+        "parameters": [
+          {
+            "name": "pgp_hex_id",
+            "in": "path",
+            "description": "The hex id for the PGP-UK participant for whom the data needs to be fetched",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/HexId"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GenomeReport"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Participant not found"
+          }
+        }
+      }
+    },
+    "/all_methylome_report": {
+      "get": {
+        "tags": [
+          "Methylome Reports"
+        ],
+        "summary": "Get all methylome reports",
+        "description": "This will return an object containing all the data for all PGP-UK participants.\n",
+        "operationId": "getMethylomeReports",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Methylome Report Data for all PGP-UK participants",
+                  "type": "object",
+                  "properties": {
+                    "hex_id": {
+                      "$ref": "#/components/schemas/HexId"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/MethylomeReport"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Data not found"
+          }
+        }
+      }
+    },
+    "/methylome_report/{pgp_hex_id}": {
+      "get": {
+        "tags": [
+          "Methylome Reports"
+        ],
+        "summary": "Get all methylome reports by PGP-UK hex id",
+        "description": "This will return an object containing all the data associated with this PGP-UK participant\n",
+        "operationId": "getMethylomeReportsByHexId",
+        "parameters": [
+          {
+            "name": "pgp_hex_id",
+            "in": "path",
+            "description": "The hex id for the PGP-UK participant for whom the data needs to be fetched",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/HexId"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MethylomeReport"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Participant not found"
+          }
+        }
+      }
+    },
+    "/all_phenotype": {
+      "get": {
+        "tags": [
+          "Phenotype Data"
+        ],
+        "summary": "Get all phenotype data",
+        "description": "This will return an object containing all the data for all PGP-UK participants.\n",
+        "operationId": "getPhenotypeData",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Phenotype question and answer obtained through a participant-filled questionnaire for all PGP-UK participants",
+                  "type": "object",
+                  "properties": {
+                    "hex_id": {
+                      "$ref": "#/components/schemas/HexId"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/Phenotype"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Data not found"
+          }
+        }
+      }
+    },
+    "/phenotype/{pgp_hex_id}": {
+      "get": {
+        "tags": [
+          "Phenotype Data"
+        ],
+        "summary": "Get all phenotype data by PGP-UK hex id",
+        "description": "This will return an object containing all the data all the data associated with this PGP-UK participant\n",
+        "operationId": "getPhenotypeDataByHexId",
+        "parameters": [
+          {
+            "name": "pgp_hex_id",
+            "in": "path",
+            "description": "The hex id for the PGP-UK participant for whom the data needs to be fetched",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/HexId"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Phenotype"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Participant not found"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "HexId": {
+        "description": "PGP-UK unique participant id",
+        "type": "string",
+        "example": "uk35C650"
+      },
+      "Participant": {
+        "description": "All data associated with PGP participant",
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "test": {
+              "type": "string",
+              "example": "example"
+            }
+          }
+        }
+      },
+      "WGS": {
+        "description": "Whole Genome Sequencing data",
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "test": {
+              "type": "string",
+              "example": "example"
+            }
+          }
+        }
+      },
+      "Variant": {
+        "description": "Variant data",
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "test": {
+              "type": "string",
+              "example": "example"
+            }
+          }
+        }
+      },
+      "Genotype": {
+        "description": "Genotype data",
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "test": {
+              "type": "string",
+              "example": "example"
+            }
+          }
+        }
+      },
+      "WGBS": {
+        "description": "Whole Genome Bisulfite Sequencing data",
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "test": {
+              "type": "string",
+              "example": "example"
+            }
+          }
+        }
+      },
+      "MethylationArrayData": {
+        "description": "Methylation Array data",
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "test": {
+              "type": "string",
+              "example": "example"
+            }
+          }
+        }
+      },
+      "RnaSeq": {
+        "description": "RNA-Seq data",
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "test": {
+              "type": "string",
+              "example": "example"
+            }
+          }
+        }
+      },
+      "AmpliconRNAseq": {
+        "description": "Amplicon RNA-Seq data",
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "test": {
+              "type": "string",
+              "example": "example"
+            }
+          }
+        }
+      },
+      "ProtonRnaSeq": {
+        "description": "Proton RNA-Seq data",
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "test": {
+              "type": "string",
+              "example": "example"
+            }
+          }
+        }
+      },
+      "DataURLs": {
+        "description": "Data containing direct URLs for all data associated with the PGP-UK participant",
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "test": {
+              "type": "string",
+              "example": "example"
+            }
+          }
+        }
+      },
+      "PGPUKProfile": {
+        "description": "Meta data from PGP-UK profile",
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "test": {
+              "type": "string",
+              "example": "example"
+            }
+          }
+        }
+      },
+      "GenomeReport": {
+        "description": "Genome Report Data",
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "published": {
+              "type": "string",
+              "example": "03/08/2018",
+              "format": "DD/MM/YYYY"
+            },
+            "file_source": {
+              "type": "string",
+              "example": "PGP"
+            },
+            "download_url": {
+              "type": "string",
+              "example": "https://my.personalgenomes.org.uk/datasets/183/download"
+            },
+            "data_type": {
+              "type": "string",
+              "example": "Methylome Report"
+            },
+            "name": {
+              "type": "string",
+              "example": "Methylome Report (Released by PGP-UK on 8th March 2018)"
+            },
+            "pgp_hex_id": {
+              "type": "string",
+              "example": "uk35C650"
+            },
+            "type": {
+              "type": "string",
+              "example": "methylome_report"
+            }
+          }
+        }
+      },
+      "MethylomeReport": {
+        "description": "Methylome Report",
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "published": {
+              "type": "string",
+              "example": "03/08/2018",
+              "format": "DD/MM/YYYY"
+            },
+            "file_source": {
+              "type": "string",
+              "example": "PGP"
+            },
+            "download_url": {
+              "type": "string",
+              "example": "https://my.personalgenomes.org.uk/datasets/183/download"
+            },
+            "data_type": {
+              "type": "string",
+              "example": "Methylome Report"
+            },
+            "name": {
+              "type": "string",
+              "example": "Methylome Report (Released by PGP-UK on 8th March 2018)"
+            },
+            "pgp_hex_id": {
+              "type": "string",
+              "example": "uk35C650"
+            },
+            "type": {
+              "type": "string",
+              "example": "methylome_report"
+            }
+          }
+        }
+      },
+      "Phenotype": {
+        "description": "Phenotype question and answer obtained through a participant-filled questionnaire",
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "question": {
+              "type": "string",
+              "example": "Age at Sample Collection"
+            },
+            "answer": {
+              "type": "string",
+              "example": 60
+            }
+          }
+        }
+      }
+    },
+    "headers": {
+      "ExpiresAfter": {
+        "description": "date in UTC when token expires",
+        "schema": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    }
+  }
+}
