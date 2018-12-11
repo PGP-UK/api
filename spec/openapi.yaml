@@ -780,9 +780,35 @@ components:
       items:
         type: object
         properties:
-          test:
-            type: string
-            example: example
+          wgs:
+            $ref: '#/components/schemas/WGS'
+            
+          variant:
+            $ref: '#/components/schemas/Variant'
+
+          genotype:
+            $ref: '#/components/schemas/Genotype'
+          wgbs:
+            $ref: '#/components/schemas/WGBS'
+          meth_array:
+            $ref: '#/components/schemas/MethylationArrayData'
+          rna_seq:
+            $ref: '#/components/schemas/RnaSeq'
+
+          amplicon_rna_seq:
+            $ref: '#/components/schemas/AmpliconRNAseq'
+          proton_rna_seq:
+            $ref: '#/components/schemas/ProtonRnaSeq'
+          download_url:
+            $ref: '#/components/schemas/DataURLs'
+          pgp_profile:
+            $ref: '#/components/schemas/PGPUKProfile'
+          genome_report:
+            $ref: '#/components/schemas/GenomeReport'
+          methylome_report:
+            $ref: '#/components/schemas/MethylomeReport'
+          phenotype:
+            $ref: '#/components/schemas/Phenotype'
 
     WGS:
       description: Whole Genome Sequencing data
@@ -810,9 +836,33 @@ components:
       items:
         type: object
         properties:
-          test:
+          published:
             type: string
-            example: example
+            example: 06/08/2017
+          file_source:
+            type: string
+            example: Participant
+          date:
+            type: string
+            example: '2014-05-15'
+          description:
+            type: string
+            example: Genotyping data
+          download_url:
+            type: string
+            example: 'https://my.personalgenomes.org.uk/user_file/download/166'
+          data_type:
+            type: string
+            example: 23andMe
+          name:
+            type: string
+            example: uk35C650_23andMe
+          pgp_hex_id:
+            type: string
+            example: uk35C650
+          type:
+            type: string
+            example: genotype
 
     WGBS:
       description: Whole Genome Bisulfite Sequencing data
@@ -870,9 +920,12 @@ components:
       items:
         type: object
         properties:
-          test:
+          type: 
             type: string
-            example: example
+            example: WGS Bam
+          download_url: 
+            type: string
+            example: ftp.sra.ebi.ac.uk/vol1/run/ERR172/ERR1726424/FR07961001.bam
 
     PGPUKProfile:
       description: Meta data from PGP-UK profile
@@ -880,9 +933,47 @@ components:
       items:
         type: object
         properties:
-          test:
+          public_profile_url:
             type: string
-            example: example
+            example: 'https://my.personalgenomes.org.uk/profile/uk35C650'
+          deceased: 
+            type: boolean
+            example: false
+          zip: 
+            type: string
+            example: CB22 4NZ
+          files:
+            type: array
+            items:
+              type: object
+              properties:
+                file_source:
+                  type: string
+                  example: PGP
+                download_url:
+                  type: string 
+                  example: 'https://my.personalgenomes.org.uk/datasets/193/download'
+                data_type:
+                  type: string
+                  example: Genome Report
+                name:
+                  type: string 
+                  example: Genome Report (Released by PGP-UK on 23rd October 2018)
+                description:
+                  type: string 
+                  example: Genotyping data
+                data:
+                  type: string 
+                  example: '2014-05-15'
+          hex: 
+            type: string
+            example: uk35C650
+          real_name: 
+            type: string 
+            example: Stephan Beck
+          type: 
+            type: string
+            example: pgp_profile
 
     GenomeReport:
       description: Genome Report Data
@@ -912,7 +1003,6 @@ components:
           type:
             type: string
             example: methylome_report
-
 
     MethylomeReport:
       description: Methylome Report
