@@ -5,6 +5,7 @@
     "title": "Personal Genome Project UK",
     "termsOfService": "https://www.personalgenomes.org.uk/tos",
     "contact": {
+      "name": "PGP-UK",
       "email": "pgp-uk@ucl.ac.uk"
     },
     "license": {
@@ -14,7 +15,7 @@
     "x-logo": {
       "url": "https://apis.guru/openapi-template/logo.png"
     },
-    "description": "# Introduction\n\nPGP-UK data (viewable at [here](https://www.personalgenomes.org.uk/data)) can also be accessed using an API, which has been documented below.\n"
+    "description": "# Introduction\n\nBelow is the documentation for the [PGP-UK data](https://www.personalgenomes.org.uk/data) restful API, which is compliant with the [OpenAPI 3.0 Specifications](https://swagger.io/specification/) (a language-agnostic standard for RESTful APIs).\n\nThe API simply provides access to the meta data (including download links etc.) associated with the PGP-UK data. As the PGP-UK data are stored at various databases at EBI (e.g. ENA, EVA, ArrayExpress etc.) and the PGP-UK Participant Portal (e.g. Phenotype data and generated reports), this API provides an easy way to bring everything together.\n\nClicking on an endpoint below will provide further information on the format of paramaters (if any) together with information on the expected result format.\n\nAdditionally, it is possible to test the API endpoint on this page by clicking on the \"Try it out\" button, and subsequently clicking on the \"Execute\" button that appears. This will display the server response (body and headers) for the respective endpoint. Furthermore, a curl command will also be displayed that can be run in a terminal.\n"
   },
   "tags": [
     {
@@ -94,7 +95,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "description": "ALL DATA TODO",
+                  "description": "Data for all PGP-UK participants",
                   "type": "object",
                   "properties": {
                     "hex_id": {
@@ -164,7 +165,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "description": "ALL DATA TODO",
+                  "description": "Whole Genome Sequencing data for all PGP-UK participants",
                   "type": "object",
                   "properties": {
                     "hex_id": {
@@ -234,7 +235,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "description": "ALL DATA TODO",
+                  "description": "Variant data for all PGP-UK participants",
                   "type": "object",
                   "properties": {
                     "hex_id": {
@@ -304,7 +305,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "description": "ALL DATA TODO",
+                  "description": "Genotype data for all PGP-UK participants",
                   "type": "object",
                   "properties": {
                     "hex_id": {
@@ -374,7 +375,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "description": "ALL DATA TODO",
+                  "description": "Whole Genome Bisulfite Sequencing data for all PGP-UK participants",
                   "type": "object",
                   "properties": {
                     "hex_id": {
@@ -444,7 +445,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "description": "ALL DATA TODO",
+                  "description": "Methylation Array data for all PGP-UK participants",
                   "type": "object",
                   "properties": {
                     "hex_id": {
@@ -514,7 +515,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "description": "ALL DATA TODO",
+                  "description": "RNA-Seq data for all PGP-UK participants",
                   "type": "object",
                   "properties": {
                     "hex_id": {
@@ -584,7 +585,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "description": "ALL DATA TODO",
+                  "description": "Amplicon RNA-Seq data for all PGP-UK participants",
                   "type": "object",
                   "properties": {
                     "hex_id": {
@@ -654,7 +655,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "description": "ALL DATA TODO",
+                  "description": "Proton RNA-Seq data for all PGP-UK participants",
                   "type": "object",
                   "properties": {
                     "hex_id": {
@@ -724,7 +725,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "description": "ALL DATA TODO",
+                  "description": "Data containing direct URLs for all data for all PGP-UK participants",
                   "type": "object",
                   "properties": {
                     "hex_id": {
@@ -794,7 +795,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "description": "ALL DATA TODO",
+                  "description": "Meta data from PGP-UK profile for all PGP-UK participants",
                   "type": "object",
                   "properties": {
                     "hex_id": {
@@ -864,7 +865,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "description": "ALL DATA TODO",
+                  "description": "Genome Report Data for all PGP-UK participants",
                   "type": "object",
                   "properties": {
                     "hex_id": {
