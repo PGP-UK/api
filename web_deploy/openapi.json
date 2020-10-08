@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "version": "1.2.0",
+    "version": "1.3.0",
     "title": "Personal Genome Project UK",
     "termsOfService": "https://www.personalgenomes.org.uk/tos",
     "contact": {
@@ -13,7 +13,7 @@
       "url": "https://creativecommons.org/share-your-work/public-domain/cc0/"
     },
     "x-logo": {
-      "url": "https://apis.guru/openapi-template/logo.png"
+      "url": "https://www.personalgenomes.org.uk/images/logo.svg"
     },
     "description": "# Introduction\n\nBelow is the documentation for the [PGP-UK data](https://www.personalgenomes.org.uk/data) restful API, which is compliant with the [OpenAPI 3.0 Specifications](https://swagger.io/specification/) (a language-agnostic standard for RESTful APIs).\n\nThe API simply provides access to the meta data (including download links etc.) associated with the PGP-UK data. As the PGP-UK data are stored at various databases at EBI (e.g. ENA, EVA, ArrayExpress etc.) and the PGP-UK Participant Portal (e.g. Phenotype data and generated reports), this API provides an easy way to bring everything together.\n\nClicking on an endpoint below will provide further information on the format of paramaters (if any) together with information on the expected result format.\n\nAdditionally, it is possible to test the API endpoint on this page by clicking on the \"Try it out\" button, and subsequently clicking on the \"Execute\" button that appears. This will display the server response (body and headers) for the respective endpoint. Furthermore, a curl command will also be displayed that can be run in a terminal.\n"
   },
@@ -77,13 +77,24 @@
   ],
   "servers": [
     {
+      "url": "https://www.personalgenomes.org.uk/api/v1.3"
+    },
+    {
       "url": "https://www.personalgenomes.org.uk/api/v1.2"
+    },
+    {
+      "url": "https://www.personalgenomes.org.uk/api/v1.1"
+    },
+    {
+      "url": "https://www.personalgenomes.org.uk/api/v1.0"
     }
   ],
   "paths": {
     "/all_participants": {
       "get": {
-        "tags": ["Participants"],
+        "tags": [
+          "Participants"
+        ],
         "summary": "Get all data",
         "description": "This will return an object containing all the data for all PGP-UK participants.\n",
         "operationId": "getAllParicipants",
@@ -115,7 +126,9 @@
     },
     "/participant/{pgp_hex_id}": {
       "get": {
-        "tags": ["Participants"],
+        "tags": [
+          "Participants"
+        ],
         "summary": "Get all data by PGP-UK hex id",
         "description": "This will return an object containing all the data associated with this PGP-UK participant\n",
         "operationId": "getParicipantByHexId",
@@ -149,7 +162,9 @@
     },
     "/all_wgs": {
       "get": {
-        "tags": ["Whole Genome Sequencing"],
+        "tags": [
+          "Whole Genome Sequencing"
+        ],
         "summary": "Get all whole genome sequencing data",
         "description": "This will return an object containing all the data for all PGP-UK participants.\n",
         "operationId": "getAllWgs",
@@ -181,7 +196,9 @@
     },
     "/wgs/{pgp_hex_id}": {
       "get": {
-        "tags": ["Whole Genome Sequencing"],
+        "tags": [
+          "Whole Genome Sequencing"
+        ],
         "summary": "Get all whole genome sequencing data by PGP-UK hex id",
         "description": "This will return an object containing all the data associated with this PGP-UK participant\n",
         "operationId": "getWgsByHexId",
@@ -215,7 +232,9 @@
     },
     "/all_variant": {
       "get": {
-        "tags": ["Variant Data"],
+        "tags": [
+          "Variant Data"
+        ],
         "summary": "Get all variant data",
         "description": "This will return an object containing all the data for all PGP-UK participants.\n",
         "operationId": "getAllVariant",
@@ -247,7 +266,9 @@
     },
     "/variant/{pgp_hex_id}": {
       "get": {
-        "tags": ["Variant Data"],
+        "tags": [
+          "Variant Data"
+        ],
         "summary": "Get all variant data by PGP-UK hex id",
         "description": "This will return an object containing all the data associated with this PGP-UK participant\n",
         "operationId": "getVariantByHexId",
@@ -281,7 +302,9 @@
     },
     "/all_genotype": {
       "get": {
-        "tags": ["Genotype Data"],
+        "tags": [
+          "Genotype Data"
+        ],
         "summary": "Get all genotype data",
         "description": "This will return an object containing all the data for all PGP-UK participants.\n",
         "operationId": "getAllGenotype",
@@ -313,7 +336,9 @@
     },
     "/genotype/{pgp_hex_id}": {
       "get": {
-        "tags": ["Genotype Data"],
+        "tags": [
+          "Genotype Data"
+        ],
         "summary": "Get all genotype data by PGP-UK hex id",
         "description": "This will return an object containing all the data associated with this PGP-UK participant\n",
         "operationId": "getGenotypeByHexId",
@@ -347,7 +372,9 @@
     },
     "/all_wgbs": {
       "get": {
-        "tags": ["Whole Genome Bisulfite Data"],
+        "tags": [
+          "Whole Genome Bisulfite Data"
+        ],
         "summary": "Get all whole genome bisulfite data",
         "description": "This will return an object containing all the data for all PGP-UK participants.\n",
         "operationId": "getAllWbgs",
@@ -379,7 +406,9 @@
     },
     "/wgbs/{pgp_hex_id}": {
       "get": {
-        "tags": ["Whole Genome Bisulfite Data"],
+        "tags": [
+          "Whole Genome Bisulfite Data"
+        ],
         "summary": "Get all whole genome bisulfite data by PGP-UK hex id",
         "description": "This will return an object containing all the data associated with this PGP-UK participant\n",
         "operationId": "getWgbsByHexId",
@@ -413,7 +442,9 @@
     },
     "/all_meth_array": {
       "get": {
-        "tags": ["Methylation Array Data"],
+        "tags": [
+          "Methylation Array Data"
+        ],
         "summary": "Get all methylation array data",
         "description": "This will return an object containing all the data for all PGP-UK participants.\n",
         "operationId": "getAllMethArray",
@@ -445,7 +476,9 @@
     },
     "/meth_array/{pgp_hex_id}": {
       "get": {
-        "tags": ["Methylation Array Data"],
+        "tags": [
+          "Methylation Array Data"
+        ],
         "summary": "Get all methylation array data by PGP-UK hex id",
         "description": "This will return an object containing all the data associated with this PGP-UK participant\n",
         "operationId": "getMethArrayByHexId",
@@ -479,7 +512,9 @@
     },
     "/all_rna_seq": {
       "get": {
-        "tags": ["RNA-Seq"],
+        "tags": [
+          "RNA-Seq"
+        ],
         "summary": "Get all RNA-seq data",
         "description": "This will return an object containing all the data for all PGP-UK participants.\n",
         "operationId": "getAllRnaSeq",
@@ -511,7 +546,9 @@
     },
     "/rna_seq/{pgp_hex_id}": {
       "get": {
-        "tags": ["RNA-Seq"],
+        "tags": [
+          "RNA-Seq"
+        ],
         "summary": "Get all RNA-seq data by PGP-UK hex id",
         "description": "This will return an object containing all the data associated with this PGP-UK participant\n",
         "operationId": "getRnaSeqByHexId",
@@ -545,7 +582,9 @@
     },
     "/all_amplicon_rna_seq": {
       "get": {
-        "tags": ["Amplicon RNA-Seq"],
+        "tags": [
+          "Amplicon RNA-Seq"
+        ],
         "summary": "Get all amplicon RNA-seq data",
         "description": "This will return an object containing all the data for all PGP-UK participants.\n",
         "operationId": "getAllAmpliconRnaSeq",
@@ -577,7 +616,9 @@
     },
     "/amplicon_rna_seq/{pgp_hex_id}": {
       "get": {
-        "tags": ["Amplicon RNA-Seq"],
+        "tags": [
+          "Amplicon RNA-Seq"
+        ],
         "summary": "Get all amplicon RNA-seq data by PGP-UK hex id",
         "description": "This will return an object containing all the data associated with this PGP-UK participant\n",
         "operationId": "getAmpliconRnaSeqByHexId",
@@ -611,7 +652,9 @@
     },
     "/all_proton_rna_seq": {
       "get": {
-        "tags": ["Proton RNA-Seq"],
+        "tags": [
+          "Proton RNA-Seq"
+        ],
         "summary": "Get all proton RNA-seq data",
         "description": "This will return an object containing all the data for all PGP-UK participants.\n",
         "operationId": "getAllProtonRnaSeq",
@@ -643,7 +686,9 @@
     },
     "/proton_rna_seq/{pgp_hex_id}": {
       "get": {
-        "tags": ["Proton RNA-Seq"],
+        "tags": [
+          "Proton RNA-Seq"
+        ],
         "summary": "Get all proton RNA-seq data by PGP-UK hex id",
         "description": "This will return an object containing all the data associated with this PGP-UK participant\n",
         "operationId": "getProtonRnaSeqByHexId",
@@ -677,7 +722,9 @@
     },
     "/all_download_url": {
       "get": {
-        "tags": ["Data Direct Urls"],
+        "tags": [
+          "Data Direct Urls"
+        ],
         "summary": "Get all file download URL",
         "description": "This will return an object containing all the data for all PGP-UK participants.\n",
         "operationId": "getDownloadUrl",
@@ -709,7 +756,9 @@
     },
     "/download_url/{pgp_hex_id}": {
       "get": {
-        "tags": ["Data Direct Urls"],
+        "tags": [
+          "Data Direct Urls"
+        ],
         "summary": "Get all file download URL by PGP-UK hex id",
         "description": "This will return an object containing all the data associated with this PGP-UK participant\n",
         "operationId": "getDownloadUrlByHexId",
@@ -743,7 +792,9 @@
     },
     "/all_pgp_profile": {
       "get": {
-        "tags": ["PGP-UK profile"],
+        "tags": [
+          "PGP-UK profile"
+        ],
         "summary": "Get all PGP-UK profile meta data",
         "description": "This will return an object containing all the data for all PGP-UK participants.\n",
         "operationId": "getPgpProfile",
@@ -775,7 +826,9 @@
     },
     "/pgp_profile/{pgp_hex_id}": {
       "get": {
-        "tags": ["PGP-UK profile"],
+        "tags": [
+          "PGP-UK profile"
+        ],
         "summary": "Get all PGP-UK profile meta data by PGP-UK hex id",
         "description": "This will return an object containing all the data associated with this PGP-UK participant\n",
         "operationId": "getPgpProfileByHexId",
@@ -809,7 +862,9 @@
     },
     "/all_genome_report": {
       "get": {
-        "tags": ["Genome Reports"],
+        "tags": [
+          "Genome Reports"
+        ],
         "summary": "Get all genome reports",
         "description": "This will return an object containing all the data for all PGP-UK participants.\n",
         "operationId": "getGenomeReport",
@@ -841,7 +896,9 @@
     },
     "/genome_report/{pgp_hex_id}": {
       "get": {
-        "tags": ["Genome Reports"],
+        "tags": [
+          "Genome Reports"
+        ],
         "summary": "Get all genome reports by PGP-UK hex id",
         "description": "This will return an object containing all the data associated with this PGP-UK participant\n",
         "operationId": "getGenomeReportByHexId",
@@ -875,7 +932,9 @@
     },
     "/all_methylome_report": {
       "get": {
-        "tags": ["Methylome Reports"],
+        "tags": [
+          "Methylome Reports"
+        ],
         "summary": "Get all methylome reports",
         "description": "This will return an object containing all the data for all PGP-UK participants.\n",
         "operationId": "getMethylomeReports",
@@ -907,7 +966,9 @@
     },
     "/methylome_report/{pgp_hex_id}": {
       "get": {
-        "tags": ["Methylome Reports"],
+        "tags": [
+          "Methylome Reports"
+        ],
         "summary": "Get all methylome reports by PGP-UK hex id",
         "description": "This will return an object containing all the data associated with this PGP-UK participant\n",
         "operationId": "getMethylomeReportsByHexId",
@@ -941,7 +1002,9 @@
     },
     "/all_phenotype": {
       "get": {
-        "tags": ["Phenotype Data"],
+        "tags": [
+          "Phenotype Data"
+        ],
         "summary": "Get all phenotype data",
         "description": "This will return an object containing all the data for all PGP-UK participants.\n",
         "operationId": "getPhenotypeData",
@@ -973,7 +1036,9 @@
     },
     "/phenotype/{pgp_hex_id}": {
       "get": {
-        "tags": ["Phenotype Data"],
+        "tags": [
+          "Phenotype Data"
+        ],
         "summary": "Get all phenotype data by PGP-UK hex id",
         "description": "This will return an object containing all the data all the data associated with this PGP-UK participant\n",
         "operationId": "getPhenotypeDataByHexId",
@@ -2563,17 +2628,26 @@
         "description": "Phenotype question and answer obtained through a participant-filled questionnaire",
         "type": "array",
         "items": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "question": {
-                "type": "string",
-                "example": "Age at Sample Collection"
-              },
-              "answer": {
-                "type": "string",
-                "example": 60
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "example": "General Questionnaire"
+            },
+            "data": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "question": {
+                    "type": "string",
+                    "example": "Age at Sample Collection"
+                  },
+                  "answer": {
+                    "type": "string",
+                    "example": 60
+                  }
+                }
               }
             }
           }

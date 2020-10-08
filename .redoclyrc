@@ -4,4 +4,5 @@ splitSpec: false
 codeSamples: false
 swaggerUI: true
 travis: false
+repo: PGP-UK/api
 oasVersion: 3.0.0

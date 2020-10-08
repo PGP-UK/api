@@ -1,5 +1,12 @@
-# PGP-UK OpenAPI Specification
+# PGP-UK API OpenAPI Specification
 
+## Links
+
+- [Reference Documentation (ReDoc)](https://pgp-uk.github.io/api/)
+- [SwaggerUI](https://pgp-uk.github.io/api/swagger-ui/)
+- OpenAPI Raw Files: [JSON](https://pgp-uk.github.io/api/openapi.json) [YAML](https://pgp-uk.github.io/api/openapi.yaml)
+
+**Warning:** All above links are updated only after Travis CI finishes deployment
 
 ## Working on specification
 ### Install
