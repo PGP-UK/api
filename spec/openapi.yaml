@@ -1,20 +1,16 @@
 openapi: 3.0.0
 info:
-  version: '1.1.0'
-
-  title: Personal Genome Project UK # Replace with your API title
-
+  version: 1.2.0
+  title: Personal Genome Project UK
   termsOfService: 'https://www.personalgenomes.org.uk/tos'
   contact:
     name: PGP-UK
     email: pgp-uk@ucl.ac.uk
-    # url: 'http://example.com/contact'
   license:
     name: Creative Commons 0 (CC0)
     url: 'https://creativecommons.org/share-your-work/public-domain/cc0/'
   x-logo:
     url: 'https://apis.guru/openapi-template/logo.png'
-
   description: |
     # Introduction
 
@@ -25,31 +21,25 @@ info:
     Clicking on an endpoint below will provide further information on the format of paramaters (if any) together with information on the expected result format.
 
     Additionally, it is possible to test the API endpoint on this page by clicking on the "Try it out" button, and subsequently clicking on the "Execute" button that appears. This will display the server response (body and headers) for the respective endpoint. Furthermore, a curl command will also be displayed that can be run in a terminal.
-
-
 tags:
   - name: Participants
     description: Operations about PGP-UK participants
-
   - name: Whole Genome Sequencing
     description: Operations about Whole Genome Sequencing Data
   - name: Variant Data
     description: Operations about Whole Genome/Exome Sequencing Variant Data
   - name: Genotype Data
     description: Operations about Genotype Data
-
   - name: Whole Genome Bisulfite Data
     description: Operations about Whole Genome Bisulfite Data
   - name: Methylation Array Data
     description: Operations about Methylation Array Data
-
   - name: RNA-Seq
     description: Operations about RNA seq data
   - name: Amplicon RNA-Seq
     description: Operations about RNA seq data (Amplicon RNA-seq)
   - name: Proton RNA-Seq
     description: Operations about RNA seq data (Proton RNA-seq)
-
   - name: Data Direct Urls
     description: Direct links to all data
   - name: PGP-UK profile
@@ -58,16 +48,12 @@ tags:
     description: Operations about the participant's Genome Reports
   - name: Methylome Reports
     description: Operations about the participant's Methylation Reports
-
   - name: Phenotype Data
     description: Operations about the participant's phenotype data
-
-
 servers:
-  - url: 'https://www.personalgenomes.org.uk/api/v1.1'
-
+  - url: 'https://www.personalgenomes.org.uk/api/v1.2'
 paths:
-  '/all_participants': # path parameter in curly braces
+  /all_participants:
     get:
       tags:
         - Participants
@@ -114,10 +100,7 @@ paths:
                 $ref: '#/components/schemas/Participant'
         '404':
           description: Participant not found
-
-
-
-  '/all_wgs': # path parameter in curly braces
+  /all_wgs:
     get:
       tags:
         - Whole Genome Sequencing
@@ -164,9 +147,7 @@ paths:
                 $ref: '#/components/schemas/WGS'
         '404':
           description: Participant not found
-
-
-  '/all_variant': # path parameter in curly braces
+  /all_variant:
     get:
       tags:
         - Variant Data
@@ -213,10 +194,7 @@ paths:
                 $ref: '#/components/schemas/Variant'
         '404':
           description: Participant not found
-
-
-
-  '/all_genotype': # path parameter in curly braces
+  /all_genotype:
     get:
       tags:
         - Genotype Data
@@ -263,10 +241,7 @@ paths:
                 $ref: '#/components/schemas/Genotype'
         '404':
           description: Participant not found
-
-
-
-  '/all_wgbs': # path parameter in curly braces
+  /all_wgbs:
     get:
       tags:
         - Whole Genome Bisulfite Data
@@ -313,10 +288,7 @@ paths:
                 $ref: '#/components/schemas/WGBS'
         '404':
           description: Participant not found
-
-
-
-  '/all_meth_array': # path parameter in curly braces
+  /all_meth_array:
     get:
       tags:
         - Methylation Array Data
@@ -363,10 +335,7 @@ paths:
                 $ref: '#/components/schemas/MethylationArrayData'
         '404':
           description: Participant not found
-
-
-
-  '/all_rna_seq': # path parameter in curly braces
+  /all_rna_seq:
     get:
       tags:
         - RNA-Seq
@@ -413,10 +382,7 @@ paths:
                 $ref: '#/components/schemas/RnaSeq'
         '404':
           description: Participant not found
-
-
-
-  '/all_amplicon_rna_seq': # path parameter in curly braces
+  /all_amplicon_rna_seq:
     get:
       tags:
         - Amplicon RNA-Seq
@@ -463,10 +429,7 @@ paths:
                 $ref: '#/components/schemas/AmpliconRNAseq'
         '404':
           description: Participant not found
-
-
-
-  '/all_proton_rna_seq': # path parameter in curly braces
+  /all_proton_rna_seq:
     get:
       tags:
         - Proton RNA-Seq
@@ -513,10 +476,7 @@ paths:
                 $ref: '#/components/schemas/ProtonRnaSeq'
         '404':
           description: Participant not found
-
-
-
-  '/all_download_url': # path parameter in curly braces
+  /all_download_url:
     get:
       tags:
         - Data Direct Urls
@@ -563,9 +523,7 @@ paths:
                 $ref: '#/components/schemas/DataURLs'
         '404':
           description: Participant not found
-
-
-  '/all_pgp_profile': # path parameter in curly braces
+  /all_pgp_profile:
     get:
       tags:
         - PGP-UK profile
@@ -612,11 +570,7 @@ paths:
                 $ref: '#/components/schemas/PGPUKProfile'
         '404':
           description: Participant not found
-
-
-
-
-  '/all_genome_report': # path parameter in curly braces
+  /all_genome_report:
     get:
       tags:
         - Genome Reports
@@ -663,11 +617,7 @@ paths:
                 $ref: '#/components/schemas/GenomeReport'
         '404':
           description: Participant not found
-
-
-
-
-  '/all_methylome_report': # path parameter in curly braces
+  /all_methylome_report:
     get:
       tags:
         - Methylome Reports
@@ -688,7 +638,6 @@ paths:
                     $ref: '#/components/schemas/HexId'
                   data:
                     $ref: '#/components/schemas/MethylomeReport'
-
         '404':
           description: Data not found
   '/methylome_report/{pgp_hex_id}':
@@ -715,11 +664,7 @@ paths:
                 $ref: '#/components/schemas/MethylomeReport'
         '404':
           description: Participant not found
-
-
-
-
-  '/all_phenotype': # path parameter in curly braces
+  /all_phenotype:
     get:
       tags:
         - Phenotype Data
@@ -740,7 +685,6 @@ paths:
                     $ref: '#/components/schemas/HexId'
                   data:
                     $ref: '#/components/schemas/Phenotype'
-
         '404':
           description: Data not found
   '/phenotype/{pgp_hex_id}':
@@ -767,18 +711,12 @@ paths:
                 $ref: '#/components/schemas/Phenotype'
         '404':
           description: Participant not found
-
-
-
-
-# An object to hold reusable parts that can be used across the spec
 components:
   schemas:
     HexId:
       description: PGP-UK unique participant id
       type: string
-      example: 'uk35C650'
-
+      example: uk35C650
     Participant:
       description: All data associated with PGP participant
       type: array
@@ -811,7 +749,6 @@ components:
             $ref: '#/components/schemas/MethylomeReport'
           phenotype:
             $ref: '#/components/schemas/Phenotype'
-
     WGS:
       description: Whole Genome Sequencing data
       type: array
@@ -977,7 +914,6 @@ components:
           meta_data_source:
             type: string
             example: 'https://www.ebi.ac.uk/ena/data/warehouse/filereport?accession=PRJEB17529&result=read_run'
-
     Variant:
       description: Variant data
       type: array
@@ -1062,8 +998,6 @@ components:
           meta_data_source:
             type: string
             example: 'https://www.ebi.ac.uk/ena/data/warehouse/filereport?accession=PRJEB17529&result=analysis'
-
-
     Genotype:
       description: Genotype data
       type: array
@@ -1097,7 +1031,6 @@ components:
           type:
             type: string
             example: genotype
-
     WGBS:
       description: Whole Genome Bisulfite Sequencing data
       type: array
@@ -1263,8 +1196,6 @@ components:
           meta_data_source:
             type: string
             example: 'https://www.ebi.ac.uk/ena/data/warehouse/filereport?accession=PRJEB17529&result=read_run'
-
-
     MethylationArrayData:
       description: Methylation Array data
       type: array
@@ -1358,7 +1289,6 @@ components:
           meta_data_source:
             type: string
             example: 'https://www.ebi.ac.uk/arrayexpress/files/E-MTAB-5377/E-MTAB-5377.sdrf.txt'
-
     RnaSeq:
       description: RNA-Seq data
       type: array
@@ -1488,8 +1418,6 @@ components:
           meta_data_source:
             type: string
             example: 'https://www.ebi.ac.uk/arrayexpress/files/E-MTAB-6523/E-MTAB-6523.sdrf.txt'
-
-
     AmpliconRNAseq:
       description: Amplicon RNA-Seq data
       type: array
@@ -1655,8 +1583,6 @@ components:
           meta_data_source:
             type: string
             example: 'https://www.ebi.ac.uk/ena/data/warehouse/filereport?accession=PRJEB25139&result=read_run'
-
-
     ProtonRnaSeq:
       description: Proton RNA-Seq data
       type: array
@@ -1822,7 +1748,6 @@ components:
           meta_data_source:
             type: string
             example: 'https://www.ebi.ac.uk/ena/data/warehouse/filereport?accession=PRJEB25139&result=read_run'
-
     DataURLs:
       description: Data containing direct URLs for all data associated with the PGP-UK participant
       type: array
@@ -1835,7 +1760,6 @@ components:
           download_url:
             type: string
             example: ftp.sra.ebi.ac.uk/vol1/run/ERR172/ERR1726424/FR07961001.bam
-
     PGPUKProfile:
       description: Meta data from PGP-UK profile
       type: array
@@ -1883,7 +1807,6 @@ components:
           type:
             type: string
             example: pgp_profile
-
     GenomeReport:
       description: Genome Report Data
       type: array
@@ -1899,7 +1822,7 @@ components:
             example: PGP
           download_url:
             type: string
-            example: https://my.personalgenomes.org.uk/datasets/183/download
+            example: 'https://my.personalgenomes.org.uk/datasets/183/download'
           data_type:
             type: string
             example: Methylome Report
@@ -1912,7 +1835,6 @@ components:
           type:
             type: string
             example: methylome_report
-
     MethylomeReport:
       description: Methylome Report
       type: array
@@ -1928,7 +1850,7 @@ components:
             example: PGP
           download_url:
             type: string
-            example: https://my.personalgenomes.org.uk/datasets/183/download
+            example: 'https://my.personalgenomes.org.uk/datasets/183/download'
           data_type:
             type: string
             example: Methylome Report
@@ -1941,7 +1863,6 @@ components:
           type:
             type: string
             example: methylome_report
-
     Phenotype:
       description: Phenotype question and answer obtained through a participant-filled questionnaire
       type: array
@@ -1956,7 +1877,6 @@ components:
             answer:
               type: string
               example: 60
-
   headers:
     ExpiresAfter:
       description: date in UTC when token expires
